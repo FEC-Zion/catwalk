@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Helpful from '../Shared/Helpful.jsx';
 
 const Review = ({ review }) => {
   const [showMore, setShowMore] = useState(false);
@@ -79,6 +80,7 @@ const Review = ({ review }) => {
         <div>
           {review.recommend ? 'I recommend this product' : null}
         </div>
+        <Helpful origin='reviews' id={review.review_id} helpCount={review.helpfulness} />
       </div>
       <div className="review-response">
 

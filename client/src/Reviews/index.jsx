@@ -103,7 +103,7 @@ const Reviews = ({ product, meta, averageRating, totalReviews }) => {
 
   return (
     <div id="container">
-
+      {/* <Helpful origin='qa/answers' id='' type='report' /> */}
       {/* container for average rating, reviews breakdown, recommends, characteristics */}
       <div id="ratings-breakdown">
         <div>

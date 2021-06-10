@@ -56,6 +56,12 @@ const App = () => {
     setAverageRating(average.toFixed(1));
   };
 
+  const setDateFormat = (array) => {
+    array.forEach((item) => {
+      item.formattedDate = new Date(item.date).toLocaleDateString({}, {month: 'long', day: '2-digit', year: 'numeric'});
+    });
+  };
+
   useEffect(() => {
     axios.get('/products/19089')
       .then((response) => {
@@ -74,9 +80,9 @@ const App = () => {
     <div>
       Super Fun Shopping Experience
       <Overview product={product} styles={styles} defaultStyle={defaultStyle} totalReviews={totalReviewCount} averageRating={averageRating}/>
-      <Related product={product} setProduct={setProduct} defaultStyle={styles[defaultStyle]}/>
+      <Related product={product} setProduct={setProduct} defaultStyle={styles[defaultStyle]} currentChar={reviewMetaData.characteristics}/>
       <QandAs product={product}/>
-      <Reviews product={product} meta={reviewMetaData} averageRating={averageRating} totalReviews={totalReviewCount}/>
+      {/* <Reviews product={product} meta={reviewMetaData} averageRating={averageRating} totalReviews={totalReviewCount}/> */}
     </div>
   );
 };
